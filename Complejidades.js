@@ -20,7 +20,7 @@ class Media{
 
 class Maxima{
     calcularCosto(tiempo){
-        const costo= tiempo * valorComun *1.07;
+        const costo= (tiempo * valorComun) * 1.07;
         if (tiempo > 10){
             costo += 1000 * (tiempo - 10);
         }
