@@ -1,4 +1,4 @@
-const {Minima}= require("./Complejidades")
+const {Minima}= require("./Complejidades") //Solo importo la clase 'Minima' del archivo 'Complejidades.js'
 
 class Tarea {
   constructor(codigo, duracion) {
@@ -20,7 +20,7 @@ class Tarea {
   }
 
   mostrarTarea() {
-    console.log(`Codigo: ${this.codigo} - Duracion: ${this.duracion} - Costo: ${this.getCosto()} `);
+    console.log(`Codigo: ${this.codigo} - Duracion: ${this.duracion} - Costo: $${this.getCosto()} `);
   }
 }
 
@@ -47,15 +47,15 @@ class TareaCompuesta {
     let costoSubtareas= this.tareas.reduce((acum,tarea)=>acum + tarea.getCosto(),0);
     let costoTotal= costoPrincipal + costoSubtareas;
     if (this.tareas.length > 3){
-      costoTotal *= 1.04
+      const porcentajeExtra= 1.04
+      costoTotal *= porcentajeExtra
     }
     return costoTotal;
   }
 
   mostrarTarea() {
-    console.log(`Codigo: ${this.codigo} - Duracion: ${this.duracion} - Costo: ${this.getCosto()} `);
+    console.log(`Codigo: ${this.codigo} - Duracion: ${this.duracion} - Costo: $${this.getCosto()} `);
     this.tareas.forEach((tarea) => tarea.mostrarTarea());
-    console.groupEnd()
   }
 }
 

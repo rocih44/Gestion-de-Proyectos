@@ -4,29 +4,31 @@ class Minima{
     calcularCosto(tiempo){
         return tiempo * valorComun;
     }
-    siguiente(){
+    siguienteComplejidad(){
         return new Media();
     }
 }
 
 class Media{
     calcularCosto(tiempo){
-        return (tiempo*valorComun) *1.05;
+        const porcentajeExtra = 1.05
+        return (tiempo*valorComun) * porcentajeExtra;
     }
-    siguiente(){
+    siguienteComplejidad(){
         return new Maxima();
     }
 }
 
 class Maxima{
     calcularCosto(tiempo){
-        const costo= (tiempo * valorComun) * 1.07;
+        const porcentajeExtra = 1.07
+        const costo= (tiempo * valorComun) * porcentajeExtra;
         if (tiempo > 10){
             costo += 1000 * (tiempo - 10);
         }
         return costo;
     }
-    siguiente(){
+    siguienteComplejidad(){
        return new Minima();
     }
 }
