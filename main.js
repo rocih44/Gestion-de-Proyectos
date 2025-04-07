@@ -2,9 +2,8 @@ const proyecto = require("./Proyecto");
 const { Tarea, TareaCompuesta } = require("./Tareas");
 const { Minima, Media, Maxima} = require("./Complejidades");
 
-const t1 = new Tarea("1", 3); 
-//La T1 Minima por defecto
-t1.complejidad= t1.complejidad.siguienteComplejidad();
+const t1 = new Tarea("1", 3); //La T1 Minima por defecto
+
 
 const t2 = new TareaCompuesta("2", 5, [
   new Tarea("2.1", 6,),
