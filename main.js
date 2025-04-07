@@ -24,7 +24,6 @@ const t3 = new TareaCompuesta("3", 7, [
 t3.complejidad= t3.complejidad.siguiente();
 
 
-
  
 proyecto.agregarTarea(t1);
 proyecto.agregarTarea(t2);
