@@ -18,6 +18,11 @@ class Proyecto {
   cleanTareas() {
     this.tareas = [];
   }
+  getCosto(){
+    //Se calcula el costo total de todas las tareas acumuladas en el Proyecto. 
+    return this.tareas.reduce((acum,tarea)=> acum + tarea.getCosto(),0);
+    
+  }
 }
 
 module.exports = new Proyecto();
