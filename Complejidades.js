@@ -1,8 +1,8 @@
 const valorComun= 10;
 
 class Minima{
-    calcularCosto(tarea){
-        return tarea.duracion * valorComun;
+    calcularCosto(tiempo){
+        return tiempo * valorComun;
     }
     siguiente(){
         return new Media();
@@ -10,8 +10,8 @@ class Minima{
 }
 
 class Media{
-    calcularCosto(tarea){
-        return (tarea.duracion*valorComun) *1.05;
+    calcularCosto(tiempo){
+        return (tiempo*valorComun) *1.05;
     }
     siguiente(){
         return new Maxima();
@@ -19,11 +19,15 @@ class Media{
 }
 
 class Maxima{
-    calcularCosto(tarea){
-        let valorExtra= tarea.duracion * valorComun;
-        let diasExtras= tarea.duracion-10;
-        valorExtra= tarea.duracion > 10 ? valorExtra * 1.07 + (diasExtras*1000) : valorExtra * 1.07;
-        return valorExtra;
+    calcularCosto(tiempo){
+        const costo= tiempo * valorComun *1.07;
+        if (tiempo > 10){
+            costo += 1000 * (tiempo - 10);
+        }
+        return costo;
+    }
+    siguiente(){
+       return new Minima();
     }
 }
 

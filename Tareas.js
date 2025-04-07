@@ -1,10 +1,10 @@
-const {Minima, Media, Maxima}= require("./Complejidades")
+const {Minima}= require("./Complejidades")
 
 class Tarea {
-  constructor(codigo, duracion, complejidad) {
+  constructor(codigo, duracion) {
     this.codigo = codigo;
     this.duracion = duracion;
-    this.complejidad = complejidad;
+    this.complejidad = new Minima();
   }
 
   getDuracion() {
@@ -14,8 +14,9 @@ class Tarea {
   getCodigo() {
     return this.codigo;
   }
-  getCosto(tarea){
-    return this.complejidad.calcularCosto(tarea);
+
+  getCosto(){
+    return this.complejidad.calcularCosto(this.duracion);
   }
 
   mostrarTarea() {
@@ -28,12 +29,12 @@ class TareaCompuesta {
     this.codigo = codigo;
     this.duracion = duracion;
     this.tareas = tareas;
+    this.complejidad= new Minima();
   }
 
   getDuracion() {
     return this.tareas.reduce(
-      (acum, tarea) => acum + tarea.getDuracion(),
-      this.duracion
+      (acum, tarea) => acum + tarea.getDuracion(), this.duracion
     );
   }
 
@@ -42,7 +43,7 @@ class TareaCompuesta {
   }
 
   getCosto(){
-    let costoPrincipal= this.complejidad.calcularCosto()
+    let costoPrincipal= this.complejidad.calcularCosto(this.duracion);
     let costoSubtareas= this.tareas.reduce((acum,tarea)=>acum + tarea.getCosto(),0);
     let costoTotal= costoPrincipal + costoSubtareas;
     if (this.tareas.length > 3){
@@ -58,4 +59,4 @@ class TareaCompuesta {
   }
 }
 
-module.exports = { Tarea, TareaCompuesta, Minima, Media, Maxima };
+module.exports = { Tarea, TareaCompuesta };

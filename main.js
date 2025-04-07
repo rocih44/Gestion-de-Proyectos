@@ -22,5 +22,5 @@ proyecto.agregarTarea(t2);
 proyecto.agregarTarea(t3);
 
 proyecto.mostrarTareas();
-console.log(`Duracion Total: ${proyecto.getDuracion()} DIAS.`);
-console.log(`Costo total: $${proyecto.getCosto()}`);
+console.log(`\nDuracion Total: ${proyecto.getDuracion()} DIAS.`);
+console.log(`\nCosto total: $${proyecto.getCosto()}`);
